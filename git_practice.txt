@@ -1,0 +1,44 @@
+Topics :Git
+
+Defination:Git is the version control tool  and source code managment tool
+
+Git Stage:
+Working Directory
+Staging Area
+Local Repository
+
+working directory:
+Where you see file physically and modification 
+At a time you can work on particular file
+
+Staging area:
+The Staging area is like a rough draft space where you can git add th version of a file
+
+Repository:
+Repository is place where you have all your code or kind of folder on server
+
+The default branch name in Git is MASTER
+
+git branching:
+This feature is provided in git, so that developers can create code related to different functionalities  on seprate branches.
+This helps the development team in creating the code in an uncluttered way.
+Later this code can be merged with master branch.
+
+Commands:
+git add "to move file to staging area"
+git reset "to get file to untracked state"
+git commit -m "to move file to staging area to local respository"
+git status "to see status of file"
+git log "to see the list of commit"
+git log --oneline"to the file status in oneline"
+git branch "to see currnt branch"
+git branch branch-name "to add new branch"
+git checkout branch-name "to switch to another branch"
+git branch -d <branch> "to delete a branch 
+git push origin master "to push to cr"
+git merge "to merge th branch"
+git stash "to stash an item"
+git stash list "to see th stash item"
+git stash clear "to clear the stash item"
+git reset --hard "to reset the file "
+git clone <url of github repo>
