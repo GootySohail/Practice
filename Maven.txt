@@ -1,0 +1,24 @@
+Maven is an autnomation nd managenment tool developed by Apache Software Foundation it is based on Pom(Project based Model)
+
+* Maven can build any number of projects into desired output such as .jar,.war
+* Mostly used for Java based Projects
+* maven is written in Java
+* Meaning of Maven is "Accumulator of Knowledge"
+
+Maven Uses:
+* It makes Project easy to build.
+* Easy to add new dependencies.
+* The tool helps get the right jar file for each project as there may versions of separate packages
+
+Dependencies:
+It refer to libraries that are needed for project
+
+Pom (Project Object Model)
+
+Pom refers to the xml file that have all the information regarding project and configuration details
+
+Commands:
+mvn compile "compile code"
+mvn test "to test"
+mvn Package " package"
+mvn install "to install"
