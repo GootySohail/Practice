@@ -17,6 +17,35 @@ Pom (Project Object Model)
 
 Pom refers to the xml file that have all the information regarding project and configuration details
 
+artifact:
+Nothing but which containe final code
+
+Local Repository:
+Local repository refers to the machine of the developer where all the project material is saved
+
+Remote Repository:
+It refer to the repository presenton a webserver which is used when maven need to download dependencies This repository works same as the central repo wheneverv anything is needed from remote repository it is first downloaded to the local repo and then it is used
+
+central repository:
+Central repository refers to the maven community that comes into action when there is a need of dependencies and those dependencies cannot be found in the local repository
+
+Maven Build Life-Cycle
+
+* Generate resource
+* compile code
+* unit test
+* package(Build)
+* install (into local repo & artifactory)
+* Deploy (to serves)
+8 Clean (delete all run time files)
+
+Artifact ID: It is an identifier for a specific piece of software or a project. 
+In the context of Maven, the Artifact ID is part of a unique identifier that distinguishes different software components. The full unique identifier in Maven consists of three main components:
+
+Group ID: This represents the group or organization that produces the project (e.g., org.apache.maven.plugins).
+Artifact ID: This is the name of the project or the specific module (e.g., maven-compiler-plugin).
+Version: This indicates the specific version of the project/module (e.g., 3.8.1).
+
 Commands:
 mvn compile "compile code"
 mvn test "to test"
