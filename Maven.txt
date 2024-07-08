@@ -51,3 +51,48 @@ mvn compile "compile code"
 mvn test "to test"
 mvn Package " package"
 mvn install "to install"
+
+Plug in:
+A plugin is a software add-on that is installed on a program, enhancing its capabilities. 
+For example, if you wanted to watch a video on a website, you may need a plugin to do so. 
+If the plugin is not installed, your browser will not understand how to play the video
+
+Types of build tool 
+ Make
+ Ant
+ Maven
+ Gradle
+
+steps to install jdk:
+sudo yum update -y
+sudo yum install -y java-11-openjdk-devel
+java -version 
+
+set path:
+nano~/.bashrc
+
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.11.0.9-1.amzn2.0.1.x86_64
+export PATH=$JAVA_HOME/bin:$PATH
+
+source ~.bashrc 
+
+Steps to install Maven:
+
+wget https://downloads.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+tar xzf apache-maven-3.8.6-bin.tar.gz
+
+vi .bashrc
+export M2_HOME=/apache-maven-3.8.6
+export PATH=$M2_HOME/bin:$PATH
+
+source .bashrc
+mvn -version
+
+Difference B/w plugin and dependencies
+Plugins are software components that extend the functionality of another software application. 
+Dependencies are external libraries or modules used to build and run a software project
+
+
+
+
+
