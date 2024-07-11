@@ -1,0 +1,102 @@
+Tomcat:
+
+* Tomcat is an open source  It was first developed for Jakarta Tomcat.
+* It is a webserver and developer by Apache software foundation
+* Apache tomcat is purely java based application and serve java servlets,jsp pages.
+* In tomcat you can deployed the war file.
+* The default pot number is 8080
+
+Types of roles available in Tomcat:
+
+FOR the Tomcat Manager application:
+ * manager-gui:allow access to the HTML GUI and the status pages
+ * manager-script: allows access to the text interface and the status pages
+ * manager-jmx:allows access to the JMX proxy and status pages
+ * manager-status:allows access to the status pages only
+For the Host Manager application:(GUI is Graphical User Interface)
+ * admin-gui:allows access to the HTML GUI and the status pages
+ * admin-script:allows access to the text interface and the status pages
+
+ Steps to install jdk:
+ sudo dnf install java-11-openjdk
+ java --version
+
+ Here is the output:
+
+~]# java --version
+openjdk 11.0.20 2023-07-18 LTS
+OpenJDK Runtime Environment (Red_Hat-11.0.20.0.8-1) (build 11.0.20+8-LTS)
+OpenJDK 64-Bit Server VM (Red_Hat-11.0.20.0.8-1) (build 11.0.20+8-LTS, mixed mode, sharing)
+
+
+
+ Steps to Install Tomcat in linux
+
+ cd /opt
+
+# Download tomcat binary
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.86/bin/apache-tomcat-9.0.86.tar.gz
+
+#unzip tomcat binary
+tar -zvxf apache-tomcat-9.0.86.tar.gz
+cd apache-tomcat-9.0.86
+
+cd bin
+
+chmod +x startup.sh
+chmod +x shutdown.sh
+
+To start Tomcat
+cd bin
+./startup.sh
+
+To shutdown Tomcat
+cd bin
+./shutdown.sh
+
+Change Settings to Manage Tomcat
+cd apache-tomcat-9.0.86
+
+find -name context.xml
+
+# comment value tag sections in below all files
+vi ./webapps/examples/META-INF/context.xml
+vi ./webapps/host-manager/META-INF/context.xml
+vi ./webapps/manager/META-INF/context.xml
+
+<Context antiResourceLocking="false" privileged="true" >
+    <!--
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+           allow="127\.\d+\.\d+\.\d+|::1"/>
+    -->
+</Context>
+
+Check File Permissions
+Make sure the tomcat-users.xml file and other configuration files have the correct 
+permissions and are readable by the Tomcat process.
+
+sudo chown tomcat: /opt/tomcat/conf/tomcat-users.xml
+sudo chmod 600 /opt/tomcat/conf/tomcat-users.xml
+
+
+Update user information in tomcat-users.xml
+cd conf
+
+vi tomcat-users.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcat-users>
+    <role rolename="manager-gui"/>
+    <role rolename="manager-script"/>
+    <role rolename="manager-jmx"/>
+    <role rolename="manager-status"/>
+    <user username="admin" password="admin" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
+</tomcat-users>
+
+http://server_ip:8080/
+
+You should see Tomcat welcome page.
+Give the signin details
+
+
+

@@ -92,6 +92,20 @@ Difference B/w plugin and dependencies
 Plugins are software components that extend the functionality of another software application. 
 Dependencies are external libraries or modules used to build and run a software project
 
+step to build project
+
+by using git clone "url" clone respository to your server
+move to the project directory
+
+if their is pom.xml file use this command :
+
+mvn compile "compile code"
+mvn test "to test"
+mvn Package " package"
+mvn install "to install"
+
+if you build success then your project is succesfully build
+
 
 
 
