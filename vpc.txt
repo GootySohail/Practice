@@ -1,0 +1,32 @@
+Virtual private clouds (VPC)
+A VPC is a virtual network that closely resembles a traditional network that you'd operate in
+your own data center. After you create a VPC, you can add subnets.
+
+Subnets for your VPC
+A subnet is a range of IP addresses in your VPC.
+
+Subnet types
+The subnet type is determined by how you configure routing for your subnets. For example:
+• Public subnet – The subnet has a direct route to an internet gateway. Resources in a public
+subnet can access the public internet.
+• Private subnet – The subnet does not have a direct route to an internet gateway. Resources in a
+private subnet require a NAT device to access the public internet.
+• VPN-only subnet – The subnet has a route to a Site-to-Site VPN connection through a virtual
+private gateway. The subnet does not have a route to an internet gateway.
+• Isolated subnet – The subnet has no routes to destinations outside its VPC. Resources in an
+isolated subnet can only access or be accessed by other resources in the same VPC.
+
+Route Table:
+A route table contains a set of rules, called routes, that determine where network traffic from your
+subnet or gateway is directed.
+
+Private IPv4 addresses
+Private IPv4 addresses (also referred to as private IP addresses in this topic) are not reachable over
+the internet, and can be used for communication between the instances in your VPC.
+
+Public IPv4 addresses
+All subnets have an attribute that determines whether a network interface created in the subnet
+automatically receives a public IPv4 address (also referred to as a public IP address in this topic).
+
+Subnet
+A subnet, or subnetwork, is a segmented piece of a larger network. More specifically, subnets are a logical partition of an Internet Protocol (IP) network broken into multiple, smaller network segments.
