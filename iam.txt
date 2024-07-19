@@ -1,0 +1,42 @@
+AWS Identity and Access Management (IAM) is a web service that helps you securely control access
+to AWS resources. With IAM, you can manage permissions that control which AWS resources
+users can access.
+
+Why should I use IAM
+
+AWS Identity and Access Management is a powerful tool for securely managing access to your
+AWS resources. One of the primary benefits of using IAM is the ability to grant shared access to
+your AWS account. Additionally, IAM allows you to assign granular permissions, enabling you
+to control exactly what actions different users can perform on specific resources
+
+IAM is preventative security control.
+It can create and manage AWS users and groups and use permissions to allow and deny access to AWS resources
+IAM deals with 4 terms such as users, groups, Roles, and Policies.
+It controls both centralized and fine grained-API resources plus a management console.
+You can specify permissions to control which operations a user or role can perform on AWS resources
+
+IAM Users:
+
+IAM users can be an individual, systems, or applications requiring access to AWS services
+A user account consists of a unique name and security credentials such as a password, access key, and/or multi-factor authentication (MFA)
+IAM users only need passwords when they access the AWS Management Console
+
+IAM Groups:
+
+IAM Groups are a way to assign permissions to logical and functional units of your organization
+IAM groups are a tool to help with operational efficiency, Bulk permissions management (scalable), and easy to change permissions as individuals change teams (portable)
+A group can contain many users, and a user can belong to multiple groups.
+Groups can’t be nested; they can contain only users, not other groups.
+
+IAM Policies:
+
+IAM policies are JSON-based statements that define access control and permissions.
+IAM policies can be “inline” or “managed” and can be attached to a user or a group
+Inline policies – policies that you create and manage, and that are embedded directly into a single user, group, or role.
+Managed policies – standalone policies that you can manage separately from the IAM users, groups, or roles to which they are attached.
+
+IAM Roles:
+
+An IAM role is like a user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS.
+You can authorize roles to be assumed by humans, Amazon EC2 instances, custom code, or other AWS services for specific access to services.
+Roles do not have standard long-term credentials such as a password or access keys associated with it, instead, when you assume a role, it provides you with temporary security credentials for your role session.
