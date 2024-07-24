@@ -1,6 +1,5 @@
 Virtual private clouds (VPC)
-A VPC is a virtual network that closely resembles a traditional network that you'd operate in
-your own data center. After you create a VPC, you can add subnets.
+Amazon Web Services (AWS) Virtual Private Cloud (VPC) is a service that allows users to create and manage their own virtual private network (VPN) in the AWS cloud. This allows users to have complete control over their own network environment, including the ability to select their own IP address range, create subnets, and configure route tables and network gateways
 
 Subnets for your VPC
 A subnet is a range of IP addresses in your VPC.
