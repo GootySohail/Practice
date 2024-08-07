@@ -1,0 +1,43 @@
+creating Image in AMI(Amazon Machine Image)
+•	select the instance
+•	click on action which above the instance
+•	click on image and templated create image
+•	give the name for image and description
+•	add the requriment as per your pourpose
+•	click create image
+How to add image to instance 
+•	click on launch Image
+•	In the below you will find click on My Ami
+•	click on launch instance
+sharing the ami to any instance in any region
+•	click on action 
+•	click on copy ami
+•	select destination (region where you need to copy the ami)
+sharing to the account
+•	go to the action
+•	click on edit ami permission
+
+Installing Httpd
+• yum install httpd
+• service httpd start
+• chkconfig httpd on
+• cd /var/www/html/
+• create index.html file
+
+
+How to change the instance performance
+first stop the instance
+click on action 
+instance settings
+change instance type
+
+Horizontal scaling
+distributing the load to the multiple server
+
+vertical scaling
+increasing the performance of the instance or operating system
+
+type of load balancer
+Application Load Balancer(supports Http and https)
+Network Load Balancer
+gateway Load Balancer

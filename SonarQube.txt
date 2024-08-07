@@ -1,0 +1,97 @@
+SonarQube
+SonarQube is an open-source platform developed by SonarSource for continuous inspection of code quality. It performs automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities on various programming languages.
+
+SonarQube installation
+Download the latest SonarQube:
+
+
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.0.65466.zip
+Unzip the downloaded file:
+
+
+unzip sonarqube-9.9.0.65466.zip
+sudo mv sonarqube-9.9.0.65466 /opt/sonarqube
+Create a SonarQube user:
+
+sudo adduser --system --no-create-home --group --disabled-login sonarqube
+sudo chown -R sonarqube:sonarqube /opt/sonarqube
+Edit the SonarQube configuration file to set the database details:
+
+
+sudo nano /opt/sonarqube/conf/sonar.properties
+Set the following properties:
+
+
+sonar.jdbc.username=sonar
+sonar.jdbc.password=sonar
+sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
+Create Systemd Service for SonarQube
+Create a new service file:
+
+
+sudo nano /etc/systemd/system/sonarqube.service
+Add the following content:
+
+ini
+Copy code
+[Unit]
+Description=SonarQube service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=sonarqube
+Group=sonarqube
+PermissionsStartOnly=true
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+StandardOutput=syslog
+LimitNOFILE=65536
+LimitNPROC=4096
+TimeoutStartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Reload the systemd daemon and start SonarQube:
+
+
+sudo systemctl daemon-reload
+sudo systemctl start sonarqube
+sudo systemctl enable sonarqube
+
+
+SonarQube do 2 task
+code coverage
+code quality check
+
+
+code coverage:the code will be tested it will shown in percentage code covering 80% is good one
+code quality check if this thing are less in scource that means your code is good otherwise the code is not good 
+
+bug: means error in the code
+vulnerability:int the section source code open to attack are badly written 
+code smell:the code which is poorly written ther may be confusion
+
+sonarqube is compartiable of  any program langauge
+
+sonarqube has 2 version
+
+Community version
+developer version
+
+Adminstration market place
+is to install the waht ever program you want got admistration 
+click market place 
+select the lnguage to install
+
+system:In this you kow the details about the sonarqube section 
+if the status i green it is ok
+
+Quality gate
+coverage should 80%
+click to create new one
+
+quality profile:their areso many languages are their 
+A package which have certain rule to fnd the bugs and code smell and another issues
+
