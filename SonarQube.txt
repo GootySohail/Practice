@@ -95,3 +95,46 @@ click to create new one
 quality profile:their areso many languages are their 
 A package which have certain rule to fnd the bugs and code smell and another issues
 
+Pipeline code
+
+pipeline {
+    agent any
+    
+    tools{
+        jdk 'jdk17'
+        maven 'Maven'
+    }
+    environment{
+        SCANNER_HOME=tool'Sonarqube'
+    }
+   
+
+    stages {
+        stage('GIT CHECKOUT') {
+            steps {
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/GootySohail/Petclinic.git'
+            }
+        }
+        stage('CLEAN INSTALL'){
+            steps{
+                sh "mvn clean install"
+            }
+        }
+        
+        stage('SONAR ANALYSIS') {
+            steps {
+                  withSonarQubeEnv('Sonarqube') {
+                   sh '''$SCANNER_HOME/bin/sonar-scanner \
+                      -Dsonar.projectKey=Petclinic \
+                      -Dsonar.sources=. \
+                      -Dsonar.java.binaries=. \
+                      -Dsonar.host.url=http://100.26.55.34:9000/ \
+                      -Dsonar.login=squ_540cd202c7c3c2602689dd02820f4583d3d4bade'''
+
+               }
+            }
+        }
+    }
+}
+
+squ_2e950989af73a77e9c419c4c80d179783091e080

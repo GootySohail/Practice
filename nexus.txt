@@ -1,0 +1,62 @@
+Nexus
+Nexus is a repository manager that allows you to manage software artifacts required for development, deployment, and provisioning. It acts as a central hub for managing, storing, and distributing binary artifacts like libraries, dependencies, and packages across various projects and teams
+
+Installation:
+sudo yum update -y
+sudo amazon-linux-extras install java-openjdk11 -y
+sudo adduser nexus
+sudo passwd nexus
+sudo usermod -aG wheel nexus
+wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+sudo tar -xvzf latest-unix.tar.gz -C /opt/
+sudo mv /opt/nexus-3* /opt/nexus
+sudo chown -R nexus:nexus /opt/nexus
+sudo chown -R nexus:nexus /opt/sonatype-work
+sudo nano /etc/systemd/system/nexus.service
+
+[Unit]
+Description=nexus service
+After=network.target
+
+[Service]
+Type=forking
+LimitNOFILE=65536
+ExecStart=/opt/nexus/bin/nexus start
+ExecStop=/opt/nexus/bin/nexus stop
+User=nexus
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload
+sudo systemctl enable nexus
+sudo systemctl start nexus
+http://<your-server-ip>:8081
+
+
+TO install in docker
+
+docker run -d --name nexus -p 8081:8081 sonatype/nexus3
+
+
+In your POM file, you can include the following information :
+
+<distributionManagement>
+  <repository>
+    <id>maven-releases</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://13.126.124.159:8081/repository/maven-releases/</url>
+  </repository>
+  <snapshotRepository>
+    <id>maven-snapshots</id>
+    <!-- CHANGE HERE by your team Nexus server -->
+    <url>http://13.126.124.159:8081/repository/maven-releases/</url>
+  </snapshotRepository>
+</distributionManagement>
+&
+<repository>
+  <id>maven-releases</id>
+  <name>maven-releases</name>
+  <url>http://13.126.124.159:8081/repository/maven-releases/</url>
+</repository>
