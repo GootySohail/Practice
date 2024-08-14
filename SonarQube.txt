@@ -95,6 +95,17 @@ click to create new one
 quality profile:their areso many languages are their 
 A package which have certain rule to fnd the bugs and code smell and another issues
 
+jenkins and sonar qube integration
+install sonarscanner plugin
+maven integration plugin
+jdk
+
+go to manage jenkins congiuration tools configure the plugin
+click new job
+select job pipeline 
+in pipeline write the script which is below
+click apply and save
+
 Pipeline code
 
 pipeline {
