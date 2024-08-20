@@ -38,6 +38,10 @@ http://<your-server-ip>:8081
 TO install in docker
 
 docker run -d --name nexus -p 8081:8081 sonatype/nexus3
+docker exec -it nexus cat /nexus-data/admin.password
+
+
+To create repository 
 
 
 In your POM file, you can include the following information :
